@@ -1,0 +1,48 @@
+generated: '2026-08-25'
+method: probed
+source: >-
+  Direct HTTP probes of https://mercybio.com/.well-known/* on 2026-08-25. No pointer of
+  type WellKnown or SecurityTxt is emitted: not one path returned a real document. The
+  origin (nginx behind SiteGround) answers EVERY path — including /, /robots.txt and
+  /privacy-policy/ — with HTTP 202 and a 169-byte `sg-captcha: challenge` interstitial
+  (`<meta http-equiv="refresh" content="0;/.well-known/sgcaptcha/...">`), so these probes
+  cannot distinguish a served document from a 404. Recorded as an honest indeterminate
+  rather than as a presence.
+hosts:
+- host: mercybio.com
+  note: >-
+    Uniform bot challenge. The 202 below is the challenge interstitial, not the document;
+    treat every row as "not observed", never as a hit.
+  documents:
+  - path: /.well-known/security.txt
+    status: 202
+    file: null
+    note: bot-challenge interstitial (sg-captcha), not a security.txt
+  - path: /.well-known/openid-configuration
+    status: 202
+    file: null
+    note: bot-challenge interstitial, not an OpenID configuration
+  - path: /.well-known/oauth-authorization-server
+    status: 202
+    file: null
+    note: bot-challenge interstitial, not an authorization-server metadata document
+  - path: /.well-known/oauth-protected-resource
+    status: 202
+    file: null
+    note: bot-challenge interstitial
+  - path: /.well-known/api-catalog
+    status: 202
+    file: null
+    note: bot-challenge interstitial, not an RFC 9727 api-catalog
+  - path: /.well-known/ai-plugin.json
+    status: 202
+    file: null
+    note: bot-challenge interstitial
+  - path: /.well-known/agent-card.json
+    status: 202
+    file: null
+    note: bot-challenge interstitial, not an A2A AgentCard — no a2a/ artifact written
+  - path: /.well-known/agent.json
+    status: 202
+    file: null
+    note: bot-challenge interstitial, not an A2A AgentCard — no a2a/ artifact written

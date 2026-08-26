@@ -1,17 +1,36 @@
 aid: mercy-bioanalytics
 name: Mercy BioAnalytics
-description: 'Mercy BioAnalytics is a company surfaced via the API Evangelist harvest backlog (source:
-  secondary-market) and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Mercy BioAnalytics, Inc. is a Waltham, Massachusetts clinical-stage cancer diagnostics
+  company, founded in 2018, developing extracellular-vesicle (EV) based liquid biopsy tests
+  for the early detection of cancer. Its patented Mercy Halo platform uses biomarker
+  co-localization — the simultaneous detection of multiple cancer-related biomarkers on the
+  surface of individual tumor-derived extracellular vesicles — to read a small volume of
+  serum or plasma with a simple PCR-based readout. The company's initial programs target
+  ovarian cancer screening in asymptomatic post-menopausal women and lung cancer detection in
+  average and high-risk individuals; the Mercy Halo Ovarian Cancer Screening Test received
+  FDA Breakthrough Device Designation in May 2024. Mercy BioAnalytics raised a $41M Series A
+  in April 2023 led by Novalis LifeSciences and a $59M Series B in September 2025. The product
+  is a laboratory-developed blood test, not software: as of this profile the company publishes
+  no public developer program, API, SDK, or machine-readable API contract of any kind.
 url: https://raw.githubusercontent.com/api-evangelist/mercy-bioanalytics/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment-pass-2026-08-25
 specificationVersion: '0.20'
 created: '2026-08-25'
 modified: '2026-08-25'
 tags:
 - Company
+- Healthcare
+- Health
+- Diagnostics
+- Biotechnology
+- Life Sciences
+- Cancer Screening
+- Liquid Biopsy
+- Laboratory
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +38,36 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/mercy-bioanalytics-domain-security.yml
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://mercybio.com/
+- type: Support
+  url: https://mercybio.com/contact/
+- type: PrivacyPolicy
+  url: https://mercybio.com/privacy-policy/
+x-enrichment:
+  date: '2026-08-25'
+  status: minimal
+  artifacts_added: 2
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: >-
+    Mercy BioAnalytics sells a lab-run blood test (the Mercy Halo extracellular-vesicle
+    liquid biopsy), not software — no api/developer/docs/portal/app subdomain of
+    mercybio.com resolves in DNS, no GitHub org exists under mercybio or
+    mercy-bioanalytics, no package is published to npm or PyPI, and every /openapi,
+    /graphql and /.well-known path on mercybio.com is answered by a 169-byte SiteGround
+    `sg-captcha` interstitial (HTTP 202) rather than a document.
+  evidence:
+  - url: https://mercybio.com/openapi.json
+    status: 202
+  - url: https://mercybio.com/.well-known/api-catalog
+    status: 202
+  - url: https://mercybio.com/.well-known/agent-card.json
+    status: 202
+  - url: https://api.github.com/orgs/mercybio
+    status: 404
+  checked: '2026-08-25'
